@@ -1,0 +1,44 @@
+{
+  "department": [
+    {
+      "id": 1,
+      "deptName": "JS"
+    }
+  ],
+  "subject" : [
+    {
+      "id": 1,
+      "subName": "React",
+      "deptId":1
+    },
+    {
+      "id": 2,
+      "subName": "Angular",
+      "deptId":1
+    }
+  ],
+  "teacher" : [
+    {
+      "id": 1,
+      "teacherName": "Jaya",
+      "deptId":1,
+      "subjectId": [1,2]
+    }
+  ],
+  "student" : [
+    {
+      "id": 1,
+      "deptName": "Vinay",
+      "classes": [
+        {
+          "subjectId": 1,
+          "teacherId": 1
+        },
+        {
+          "subjectId": 2,
+          "teacherId": 2
+        }
+      ]
+    }
+  ]
+}
