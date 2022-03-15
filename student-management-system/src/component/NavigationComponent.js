@@ -4,7 +4,7 @@ import "../style.css";
 const NavigationComponent = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         SMS
       </a>
 
@@ -123,8 +123,8 @@ const NavigationComponent = (props) => {
           </li>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
-            <Link to='/login' class="btn btn-sm btn-outline-success my-2 my-sm-0">Login</Link>
+        <form className="form-inline my-2 my-lg-0">
+            <Link to='/login' className="btn btn-sm btn-outline-success my-2 my-sm-0">Login</Link>
         </form>
       </div>
     </nav>

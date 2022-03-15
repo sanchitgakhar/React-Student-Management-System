@@ -1,7 +1,24 @@
+import { useState } from "react";
+import { updateSubject } from "../../service";
+
 const UpdateSubject = () => {
+  const [result, setResult] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.departmentName.value);
+    updateSubject(
+      Number(e.target.subjectId.value),
+      e.target.subjectName.value,
+      Number(e.target.departmentId.value)
+    )
+      .then((result) => {
+        setResult("Success");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    setTimeout(() => setResult(""), 2000);
   };
 
   return (
@@ -35,6 +52,7 @@ const UpdateSubject = () => {
           <button type="submit" className="btn btn-warning">
             Update
           </button>
+          <span className="badge badge-success">{result}</span>
         </form>
       </div>
     </div>
