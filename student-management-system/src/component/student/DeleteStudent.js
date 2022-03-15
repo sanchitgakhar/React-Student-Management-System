@@ -1,6 +1,8 @@
 import {deleteStudent} from "../../service";
+import {useState} from "react";
 
 const DeleteStudent = () => {
+    const [result, setResult] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
 

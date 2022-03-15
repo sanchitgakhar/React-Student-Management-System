@@ -1,6 +1,8 @@
 import {addStudent} from "../../service";
+import {useState} from "react";
 
 const AddStudent = () => {
+  const [result, setResult] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     addStudent(e.target.studentName.value, Number(e.target.subjectId.value),Number(e.target.teacherId.value),Number(e.target.departmentId.value))

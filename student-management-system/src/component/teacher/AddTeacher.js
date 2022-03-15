@@ -1,6 +1,8 @@
 import {addTeacher} from "../../service";
+import {useState} from "react";
 
 const AddTeacher = () => {
+  const [result, setResult] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
 

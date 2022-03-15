@@ -1,6 +1,8 @@
 import {updateTeacher} from "../../service";
+import {useState} from "react";
 
 const UpdateTeacher = () => {
+  const [result, setResult] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
 

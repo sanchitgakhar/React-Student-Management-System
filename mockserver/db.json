@@ -43,6 +43,12 @@
       "teacherName": "Rahul Jain",
       "deptId": 2,
       "subjectId": 2
+    },
+    {
+      "teacherName": "abc",
+      "deptId": 1,
+      "subjectId": 1,
+      "id": 3
     }
   ],
   "students": [
