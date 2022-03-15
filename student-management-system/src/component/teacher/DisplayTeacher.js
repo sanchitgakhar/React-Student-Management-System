@@ -4,11 +4,34 @@ import api from "../../api/api";
 const DisplayTeacher=()=>{
 
   const [teacher,setTeacher]=useState([])
+  const [dept,setDept]=useState([])
+  const [subject,setSubject]=useState([])
+
+  useEffect(   async ()=>{
+    const res= await api.get("/departments")
+    setDept(res.data)
+  },[])
+
+  useEffect(   async ()=>{
+    const res= await api.get("/subjects")
+    setSubject(res.data)
+  },[])
 
   useEffect(   async ()=>{
     const res= await api.get("/teachers")
-    setTeacher(res.data)
-  },[])
+    let tempTeacher = []
+    res.data.map((data)=>{
+      tempTeacher.push(
+          {
+            id:data.id,
+            teacherName:data.teacherName,
+            deptName: dept.filter((i)=>i.id===data.deptId)[0].deptName,
+            subjectName: subject.filter((i)=>i.id===data.subjectId)[0].subName
+          }
+      )
+    })
+    setTeacher(tempTeacher)
+  },[dept,subject])
 
     return (
       <div class="container">
@@ -30,8 +53,8 @@ const DisplayTeacher=()=>{
                     <tr key={c.id}>
                       <td>{c.id}</td>
                       <td>{c.teacherName}</td>
-                      <td>{c.deptId}</td>
-                      <td>{c.subjectId}</td>
+                      <td>{c.deptName}</td>
+                      <td>{c.subjectName}</td>
                     </tr>
                   );
                 })}

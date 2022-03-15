@@ -4,11 +4,42 @@ import api from "../../api/api";
 const DisplayStudent=()=>{
 
   const [student,setStudent]=useState([])
+  const [teacher,setTeacher]=useState([])
+  const [dept,setDept]=useState([])
+  const [subject,setSubject]=useState([])
+
+  useEffect(   async ()=>{
+    const res= await api.get("/departments")
+    setDept(res.data)
+  },[])
+
+  useEffect(   async ()=>{
+    const res= await api.get("/subjects")
+    setSubject(res.data)
+  },[])
+
+  useEffect(   async ()=>{
+    const res= await api.get("/teachers")
+    setTeacher(res.data)
+  },[])
 
   useEffect(   async ()=>{
     const res= await api.get("/students")
-    setStudent(res.data)
-  },[])
+    let tempStudent = []
+    res.data.map((data)=>{
+      tempStudent.push(
+          {
+            id:data.id,
+            studentName:data.studentName,
+            deptName: dept.filter((i)=>i.id===data.deptId)[0].deptName,
+            subjectName: subject.filter((i)=>i.id===data.subjectId)[0].subName,
+            teacherName: teacher.filter((i)=>i.id===data.teacherId)[0].teacherName,
+          }
+      )
+    })
+    setStudent(tempStudent)
+  },[dept,subject,teacher])
+
 
     return (
       <div class="container">
@@ -31,9 +62,9 @@ const DisplayStudent=()=>{
                     <tr key={c.id}>
                       <td>{c.id}</td>
                       <td>{c.studentName}</td>
-                      <td>{c.subjectId}</td>
-                      <td>{c.teacherId}</td>
-                      <td>{c.deptId}</td>
+                      <td>{c.subjectName}</td>
+                      <td>{c.teacherName}</td>
+                      <td>{c.deptName}</td>
                     </tr>
                   );
                 })}

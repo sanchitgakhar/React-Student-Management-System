@@ -14,14 +14,12 @@ const DisplaySubject=()=>{
   useEffect(   async ()=>{
     const res= await api.get("/subjects")
     let tempSubject = []
-    console.log(res.data)
     res.data.map((data)=>{
-
       tempSubject.push(
           {
             id:data.id,
             subName:data.subName,
-            dept: data.deptId
+            dept: dept.filter((i)=>i.id===data.deptId)[0].deptName
           }
       )
     })
