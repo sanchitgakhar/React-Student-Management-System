@@ -7,10 +7,8 @@ const DisplayDepartment = (props) => {
     const [dept,setDept]=useState([])
 
     useEffect(   async ()=>{
-        console.log("in use effect")
-            const res= await api.get("/departments")
-            console.log(res)
-            setDept(res.data)
+        const res= await api.get("/departments")
+        setDept(res.data)
         },[])
 
     return (

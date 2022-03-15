@@ -1,8 +1,15 @@
-import React, { Component } from "react";
+import React, {useEffect, useState} from "react";
+import api from "../../api/api";
 
-class DisplayStudent extends Component {
-  state = {};
-  render() {
+const DisplayStudent=()=>{
+
+  const [student,setStudent]=useState([])
+
+  useEffect(   async ()=>{
+    const res= await api.get("/students")
+    setStudent(res.data)
+  },[])
+
     return (
       <div class="container">
         <div class="row">
@@ -13,20 +20,18 @@ class DisplayStudent extends Component {
                 <tr>
                   <th>Id</th>
                   <th>Name</th>
-                  <th>Department</th>
                   <th>Subject</th>
                   <th>Teacher</th>
                 </tr>
               </thead>
               <tbody>
-                {this.props.student.map((c) => {
+                {student.map((c) => {
                   return (
                     <tr key={c.id}>
                       <td>{c.id}</td>
-                      <td>{c.name}</td>
-                      <td>{c.department}</td>
-                      <td>{c.subject}</td>
-                      <td>{c.teacher}</td>
+                      <td>{c.studentName}</td>
+                      <td>{c.subjectId}</td>
+                      <td>{c.teacherId}</td>
                     </tr>
                   );
                 })}
@@ -36,7 +41,6 @@ class DisplayStudent extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default DisplayStudent;

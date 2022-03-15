@@ -36,43 +36,27 @@
       "id": 1,
       "teacherName": "Jaya",
       "deptId": 1,
-      "subjectId": [1, 2]
+      "subjectId": 1
     },
     {
       "id": 2,
       "teacherName": "Rahul Jain",
       "deptId": 2,
-      "subjectId": [3, 4]
+      "subjectId": 2
     }
   ],
   "students": [
     {
       "id": 1,
       "studentName": "Vinay",
-      "classes": [
-        {
-          "subjectId": 1,
-          "teacherId": 1
-        },
-        {
-          "subjectId": 2,
-          "teacherId": 1
-        }
-      ]
+      "subjectId": 1,
+      "teacherId": 1
     },
     {
       "id": 2,
       "studentName": "Sanchit",
-      "classes": [
-        {
-          "subjectId": 3,
-          "teacherId": 2
-        },
-        {
-          "subjectId": 4,
-          "teacherId": 2
-        }
-      ]
+      "subjectId": 2,
+      "teacherId": 2
     }
   ],
   "users": [

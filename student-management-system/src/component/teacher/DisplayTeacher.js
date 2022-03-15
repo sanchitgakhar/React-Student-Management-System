@@ -1,8 +1,15 @@
-import React, { Component } from "react";
+import React, {Component, useEffect, useState} from "react";
+import api from "../../api/api";
 
-class DisplayTeacher extends Component {
-  state = {};
-  render() {
+const DisplayTeacher=()=>{
+
+  const [teacher,setTeacher]=useState([])
+
+  useEffect(   async ()=>{
+    const res= await api.get("/teachers")
+    setTeacher(res.data)
+  },[])
+
     return (
       <div class="container">
         <div class="row">
@@ -18,13 +25,13 @@ class DisplayTeacher extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.teacher.map((c) => {
+                {teacher.map((c) => {
                   return (
                     <tr key={c.id}>
                       <td>{c.id}</td>
-                      <td>{c.name}</td>
-                      <td>{c.department}</td>
-                      <td>{c.subject}</td>
+                      <td>{c.teacherName}</td>
+                      <td>{c.deptId}</td>
+                      <td>{c.subjectId}</td>
                     </tr>
                   );
                 })}
@@ -34,7 +41,6 @@ class DisplayTeacher extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default DisplayTeacher;
