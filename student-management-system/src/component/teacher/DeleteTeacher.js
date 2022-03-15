@@ -1,7 +1,17 @@
+import {deleteSubject, deleteTeacher} from "../../service";
+
 const DeleteTeacher = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.teacherId.value);
+
+    deleteTeacher(Number(e.target.teacherId.value))
+        .then((result) => {
+          setResult("Success");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      setTimeout(() => setResult(""), 2000);
   };
 
   return (

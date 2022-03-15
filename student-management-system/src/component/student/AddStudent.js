@@ -1,7 +1,16 @@
+import {addStudent} from "../../service";
+
 const AddStudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.departmentName.value);
+    addStudent(e.target.studentName.value, Number(e.target.subjectId.value),Number(e.target.teacherId.value),Number(e.target.departmentId.value))
+        .then((result) => {
+          setResult("Success");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    setTimeout(() => setResult(""), 2000);
   };
 
   return (

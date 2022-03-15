@@ -1,7 +1,22 @@
+import {updateTeacher} from "../../service";
+
 const UpdateTeacher = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.departmentName.value);
+
+    updateTeacher(
+        Number(e.target.teacherId.value),
+        e.target.teacherName.value,
+        Number(e.target.departmentId.value),
+        Number(e.target.subjectId.value)
+    )
+        .then((result) => {
+          setResult("Success");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    setTimeout(() => setResult(""), 2000);
   };
 
   return (
