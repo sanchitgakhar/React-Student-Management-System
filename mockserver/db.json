@@ -1,34 +1,54 @@
 {
-  "department": [
+  "departments": [
     {
       "id": 1,
-      "deptName": "JS"
+      "deptName": "Computer Science"
+    },
+    {
+      "id": 2,
+      "deptName": "Civil Engineering"
     }
   ],
-  "subject" : [
+  "subjects": [
     {
       "id": 1,
       "subName": "React",
-      "deptId":1
+      "deptId": 1
     },
     {
       "id": 2,
       "subName": "Angular",
-      "deptId":1
+      "deptId": 1
+    },
+    {
+      "id": 3,
+      "subName": "Surveying",
+      "deptId": 2
+    },
+    {
+      "id": 4,
+      "subName": "Building Material",
+      "deptId": 2
     }
   ],
-  "teacher" : [
+  "teachers": [
     {
       "id": 1,
       "teacherName": "Jaya",
-      "deptId":1,
-      "subjectId": [1,2]
+      "deptId": 1,
+      "subjectId": [1, 2]
+    },
+    {
+      "id": 2,
+      "teacherName": "Rahul Jain",
+      "deptId": 2,
+      "subjectId": [3, 4]
     }
   ],
-  "student" : [
+  "students": [
     {
       "id": 1,
-      "deptName": "Vinay",
+      "studentName": "Vinay",
       "classes": [
         {
           "subjectId": 1,
@@ -36,9 +56,37 @@
         },
         {
           "subjectId": 2,
+          "teacherId": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "studentName": "Sanchit",
+      "classes": [
+        {
+          "subjectId": 3,
+          "teacherId": 2
+        },
+        {
+          "subjectId": 4,
           "teacherId": 2
         }
       ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "sanchitghakhar",
+      "password": "test@123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "vinayverma",
+      "password": "test@123",
+      "role": "user"
     }
   ]
 }
