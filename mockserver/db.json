@@ -50,13 +50,15 @@
       "id": 1,
       "studentName": "Vinay",
       "subjectId": 1,
-      "teacherId": 1
+      "teacherId": 1,
+      "deptId": 1
     },
     {
       "id": 2,
       "studentName": "Sanchit",
       "subjectId": 2,
-      "teacherId": 2
+      "teacherId": 2,
+      "deptId": 2
     }
   ],
   "users": [

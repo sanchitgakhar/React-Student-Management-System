@@ -22,6 +22,7 @@ const DisplayStudent=()=>{
                   <th>Name</th>
                   <th>Subject</th>
                   <th>Teacher</th>
+                  <th>Department</th>
                 </tr>
               </thead>
               <tbody>
@@ -32,6 +33,7 @@ const DisplayStudent=()=>{
                       <td>{c.studentName}</td>
                       <td>{c.subjectId}</td>
                       <td>{c.teacherId}</td>
+                      <td>{c.deptId}</td>
                     </tr>
                   );
                 })}
