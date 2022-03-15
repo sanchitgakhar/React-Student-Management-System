@@ -77,13 +77,13 @@
   ],
   "users": [
     {
-      "id": 1,
-      "username": "sanchitghakhar",
+      "id": "sanchitgakhar",
+      "username": "sanchitgakhar",
       "password": "test@123",
       "role": "admin"
     },
     {
-      "id": 2,
+      "id": "vinayverma",
       "username": "vinayverma",
       "password": "test@123",
       "role": "user"

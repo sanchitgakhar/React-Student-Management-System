@@ -23,6 +23,7 @@ import AddTeacher from "./component/teacher/AddTeacher";
 import DeleteTeacher from "./component/teacher/DeleteTeacher";
 import DisplayTeacher from "./component/teacher/DisplayTeacher";
 import UpdateTeacher from "./component/teacher/UpdateTeacher";
+import LoginComponent from "./component/LoginComponent";
 
 function App() {
 
@@ -146,6 +147,10 @@ function App() {
               </ProtectedRoute>
             }
           ></Route>
+            <Route
+                path="/login"
+                element={<LoginComponent />}
+            ></Route>
         </Routes>
       </Router>
     </div>
