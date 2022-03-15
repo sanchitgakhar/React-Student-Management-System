@@ -1,7 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
+import {useEffect,useState} from "react";
+import api from "../../api/api";
 
-class DisplayDepartment extends Component {
-  render() {
+const DisplayDepartment = (props) => {
+
+    const [dept,setDept]=useState([])
+
+    useEffect(   async ()=>{
+        console.log("in use effect")
+            const res= await api.get("/departments")
+            console.log(res)
+            setDept(res.data)
+        },[])
+
     return (
       <div class="container">
         <div class="row">
@@ -15,11 +26,11 @@ class DisplayDepartment extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.department.map((c) => {
+                {dept.map((c) => {
                   return (
                     <tr key={c.id}>
                       <td>{c.id}</td>
-                      <td>{c.name}</td>
+                      <td>{c.deptName}</td>
                     </tr>
                   );
                 })}
@@ -29,7 +40,6 @@ class DisplayDepartment extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default DisplayDepartment;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -24,10 +23,11 @@ import DeleteTeacher from "./component/teacher/DeleteTeacher";
 import DisplayTeacher from "./component/teacher/DisplayTeacher";
 import UpdateTeacher from "./component/teacher/UpdateTeacher";
 import LoginComponent from "./component/LoginComponent";
+import {useSelector} from "react-redux";
 
 function App() {
 
-  const [user, setUser] = useState(null);
+    const {userdata} = useSelector((state)=>state.users)
 
   return (
     <div>
@@ -45,7 +45,7 @@ function App() {
           <Route
             path="/add-department"
             element={
-              <ProtectedRoute user={user} basePath="/display-department">
+              <ProtectedRoute user={userdata} basePath="/display-department">
                 <AddDepartment />
               </ProtectedRoute>
             }
@@ -53,7 +53,7 @@ function App() {
           <Route
             path="/update-department"
             element={
-              <ProtectedRoute user={user} basePath="/display-department">
+              <ProtectedRoute user={userdata} basePath="/display-department">
                 <UpdateDepartment />
               </ProtectedRoute>
             }
@@ -61,7 +61,7 @@ function App() {
           <Route
             path="/delete-department"
             element={
-              <ProtectedRoute user={user} basePath="/display-department">
+              <ProtectedRoute user={userdata} basePath="/display-department">
                 <DeleteDepartment />
               </ProtectedRoute>
             }
@@ -72,7 +72,7 @@ function App() {
           <Route
             path="/add-subject"
             element={
-              <ProtectedRoute user={user} basePath="/display-subject">
+              <ProtectedRoute user={userdata} basePath="/display-subject">
                 <AddSubject />
               </ProtectedRoute>
             }
@@ -80,7 +80,7 @@ function App() {
           <Route
             path="/update-subject"
             element={
-              <ProtectedRoute user={user} basePath="/display-subject">
+              <ProtectedRoute user={userdata} basePath="/display-subject">
                 <UpdateSubject />
               </ProtectedRoute>
             }
@@ -88,7 +88,7 @@ function App() {
           <Route
             path="/delete-subject"
             element={
-              <ProtectedRoute user={user} basePath="/display-subject">
+              <ProtectedRoute user={userdata} basePath="/display-subject">
                 <DeleteSubject />
               </ProtectedRoute>
             }
@@ -99,7 +99,7 @@ function App() {
           <Route
             path="/add-teacher"
             element={
-              <ProtectedRoute user={user} basePath="/display-teacher">
+              <ProtectedRoute user={userdata} basePath="/display-teacher">
                 <AddTeacher />
               </ProtectedRoute>
             }
@@ -107,7 +107,7 @@ function App() {
           <Route
             path="/update-teacher"
             element={
-              <ProtectedRoute user={user} basePath="/display-teacher">
+              <ProtectedRoute user={userdata} basePath="/display-teacher">
                 <UpdateTeacher />
               </ProtectedRoute>
             }
@@ -115,7 +115,7 @@ function App() {
           <Route
             path="/delete-teacher"
             element={
-              <ProtectedRoute user={user} basePath="/display-teacher">
+              <ProtectedRoute user={userdata} basePath="/display-teacher">
                 <DeleteTeacher />
               </ProtectedRoute>
             }
@@ -126,7 +126,7 @@ function App() {
           <Route
             path="/add-student"
             element={
-              <ProtectedRoute user={user} basePath="/display-student">
+              <ProtectedRoute user={userdata} basePath="/display-student">
                 <AddStudent />
               </ProtectedRoute>
             }
@@ -134,7 +134,7 @@ function App() {
           <Route
             path="/update-student"
             element={
-              <ProtectedRoute user={user} basePath="/display-student">
+              <ProtectedRoute user={userdata} basePath="/display-student">
                 <UpdateStudent />
               </ProtectedRoute>
             }
@@ -142,7 +142,7 @@ function App() {
           <Route
             path="/delete-student"
             element={
-              <ProtectedRoute user={user} basePath="/display-student">
+              <ProtectedRoute user={userdata} basePath="/display-student">
                 <DeleteStudent />
               </ProtectedRoute>
             }
@@ -158,9 +158,11 @@ function App() {
 }
 
 const ProtectedRoute = (props) => {
-  if (props.user) {
+  if (props.user.id) {
+      console.log("user available")
     return props.children;
   } else {
+      console.log("no user")
     return <Navigate to={props.basePath}></Navigate>;
   }
 };

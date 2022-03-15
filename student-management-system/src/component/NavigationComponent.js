@@ -104,7 +104,7 @@ const NavigationComponent = (props) => {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Teacher
+              Student
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarStudent">
               <Link to="/display-student" className="dropdown-item">
